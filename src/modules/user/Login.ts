@@ -24,6 +24,11 @@ export class LoginResolver {
             return null;
         }
 
+        // Check Email Confirmation
+        if (!user.confirmed) {
+            return null;
+        }
+
         // Set Session
         context.req.session!.userId = user.id;
 
